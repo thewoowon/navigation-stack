@@ -3,12 +3,9 @@
 export default function Home() {
   const goToProfile = () => {
     if (window?.webkit?.messageHandlers?.iosNative) {
-      window.webkit.messageHandlers.iosNative.postMessage({
-        type: "navigate",
-        payload: { url: "/profile" },
-      });
+      window.webkit.messageHandlers.iosNative.postMessage("navigate||/profile");
     } else {
-      console.log("Not running in hybrid app. Navigate with router.");
+      console.log("하이브리드앱이 아닙니다. 프로필 페이지로 이동합니다.");
     }
   };
 

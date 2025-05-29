@@ -3,13 +3,10 @@
 const Profile = () => {
   const goBack = () => {
     if (window?.webkit?.messageHandlers?.iosNative) {
-      window?.webkit?.messageHandlers?.iosNative?.postMessage({
-        type: "back",
-        payload: {},
-      });
+      window.webkit.messageHandlers.iosNative.postMessage("back");
     } else {
-      console.log("Not running in hybrid app. Go back with router.");
-      // If not in a hybrid app, you can use Next.js router to go back
+      console.log("하이브리드앱이 아닙니다. 뒤로가기 합니다.");
+      // 일반 웹에서는 history.back()을 사용하여 뒤로가기
       window.history.back();
     }
   };
