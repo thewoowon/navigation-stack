@@ -2,10 +2,16 @@
 
 const Profile = () => {
   const goBack = () => {
-    window?.webkit?.messageHandlers?.bridge?.postMessage({
-      type: "back",
-      payload: {},
-    });
+    if (window?.webkit?.messageHandlers?.iosNative) {
+      window?.webkit?.messageHandlers?.iosNative?.postMessage({
+        type: "back",
+        payload: {},
+      });
+    } else {
+      console.log("Not running in hybrid app. Go back with router.");
+      // If not in a hybrid app, you can use Next.js router to go back
+      window.history.back();
+    }
   };
 
   return (

@@ -2,8 +2,8 @@
 
 export default function Home() {
   const goToProfile = () => {
-    if (window?.webkit?.messageHandlers?.bridge) {
-      window.webkit.messageHandlers.bridge.postMessage({
+    if (window?.webkit?.messageHandlers?.iosNative) {
+      window.webkit.messageHandlers.iosNative.postMessage({
         type: "navigate",
         payload: { url: "/profile" },
       });
